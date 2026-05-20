@@ -260,44 +260,7 @@ export const HomeView = ({ setView, completedPillars = [] }: HomeViewProps) => {
         </motion.button>
       </div>
 
-      {/* Pillars Preview */}
-      <motion.div variants={itemVariants}>
-        <div className="flex justify-between items-center mb-4 px-2">
-          <h2 className="text-sm font-black text-slate-800 uppercase tracking-widest">Tus Pilares</h2>
-          <button onClick={() => setView('pillars')} className="text-rose-500 text-[10px] font-black uppercase tracking-wider hover:underline">Ver Mapa</button>
-        </div>
-        <div className="flex gap-4 overflow-x-auto pb-4 px-2 scrollbar-hide">
-          {PILARES.map((p, idx) => {
-            const Icon = IconMap[p.icon] || Heart;
-            const isCompleted = completedPillars.includes(p.id);
-            return (
-              <motion.div 
-                key={p.id}
-                whileHover={{ scale: 1.02 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 + (idx * 0.1) }}
-                className="min-w-[150px] bg-white p-5 rounded-3xl border border-slate-100 text-center hover:border-rose-200 transition-colors cursor-pointer group relative shadow-sm"
-              >
-                {isCompleted && (
-                  <div className="absolute top-3 right-3 text-rose-500 bg-white rounded-full">
-                    <CheckCircle2 size={16} fill="currentColor" className="text-white fill-rose-500" />
-                  </div>
-                )}
-                <div className={`${isCompleted ? 'bg-amber-400' : p.color} w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3 text-white group-hover:scale-110 transition-transform shadow-md shadow-black/5`}>
-                  <Icon size={24} />
-                </div>
-                <span className="text-[11px] font-black text-slate-700 uppercase tracking-tighter block truncate">{p.name}</span>
-                {isCompleted ? (
-                   <span className="text-[8px] font-black text-amber-500 uppercase mt-1 block">Sólido</span>
-                ) : (
-                   <span className="text-[8px] font-bold text-slate-400 uppercase mt-1 block">Por explorar</span>
-                )}
-              </motion.div>
-            );
-          })}
-        </div>
-      </motion.div>
+
 
       {/* Blog Teaser */}
       <motion.div variants={itemVariants} className="px-1">

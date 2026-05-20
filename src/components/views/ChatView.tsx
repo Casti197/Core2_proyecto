@@ -31,7 +31,7 @@ export const ChatView = () => {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-160px)] pb-24 animate-in fade-in duration-500">
+    <div className="flex flex-col h-[calc(100vh-140px)] pb-18 animate-in fade-in duration-500">
       <div className="flex-1 overflow-y-auto space-y-4 p-2 scrollbar-hide" ref={scrollRef}>
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>

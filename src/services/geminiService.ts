@@ -1,11 +1,11 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || "" });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
 export async function askMentor(prompt: string) {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",  // ✅ modelo válido
+      model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         systemInstruction: "Actúa como un experto en antropología y relaciones de pareja para una materia de universidad llamada Persona y Afectividad. Eres un mentor académico y emocional. Tus respuestas deben ser breves, profundas, empáticas y basadas en valores que fomenten el diálogo en la pareja.",

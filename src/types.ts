@@ -1,3 +1,15 @@
+export interface InteractiveChallenge {
+  prompt: string;
+  type: 'open' | 'fill-gap' | 'order-principles' | 'multi-choice';
+  sentenceTemplate?: string;
+  gapOptions?: string[];
+  gapAnswer?: string;
+  items?: string[];
+  correctOrder?: string[];
+  options?: string[];
+  correctOptionIndex?: number;
+}
+
 export interface Pillar {
   id: string;
   name: string;
@@ -5,7 +17,7 @@ export interface Pillar {
   color: string;
   levels: number;
   description: string;
-  challenges: string[];
+  challenges: (string | InteractiveChallenge)[];
 }
 
 export interface Comment {
@@ -21,6 +33,8 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   date: string;
+  category?: string;
+  image?: string;
   comments?: Comment[];
 }
 
